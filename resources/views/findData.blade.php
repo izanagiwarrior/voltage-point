@@ -17,35 +17,25 @@
                          </div>
                     </div>
                </div>
-               <div class="card-deck">
-                    <div class="card">
-                         <a href="" class="card-find">
-                              <div class="card-body">
-                                   <h5 class="card-title">Voltage Point 31.402.01</h5>
-                                   <p class="card-text">Jl. Kiaracondong, Binong, Batununggal, Bandung</p>
-                              </div>
-                         </a>
-                    </div>
-                    <div class="card">
-                         <a href="" class="card-find">
-                              <div class="card-body">
-                                   <h5 class="card-title">Voltage Point 31.402.02</h5>
-                                   <p class="card-text">Jl. Jend. Sudirman, Sukahaji, Kec. Babakan Ciparay, Bandung</p>
-                              </div>
-                         </a>
-                    </div>
-                    <div class="card">
-                         <a href="" class="card-find">
-                              <div class="card-body">
-                                   <h5 class="card-title">Voltage Point 31.406.01</h5>
-                                   <p class="card-text">Jl. Soekarno Hatta No. 728
-                                   </p>
-                              </div>
-                         </a>
-                    </div>
+               @if (count($point) === 0)
+               <div class="d-flex justify-content-center">
+                    <p class="text-muted">There is no data...</p>
                </div>
+               @elseif (count($point) > 0)
+               <div class="card-deck">
+                    @foreach ($point as $index)
+                    <div class="card">
+                         <a href="{{ route('findMaps',$index->id) }}" class="card-find">
+                              <div class="card-body">
+                                   <h5 class="card-title">{{ $index->location }}</h5>
+                                   <p class="card-text"><b>Lat</b> : {{ $index->lat }}    <b>Lang</b> : {{ $index->lang }}</p>
+                              </div>
+                         </a>
+                    </div>
+                    @endforeach
+               </div>
+               @endif
           </div>
      </div>
 </div>
-
 @endsection

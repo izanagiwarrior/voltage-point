@@ -6,8 +6,23 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use App\Models\User;
+use App\Models\Point;
+use Illuminate\Http\Request;
 
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    public function find()
+    {
+        $point = Point::all();
+        return view('findData', compact('point'));
+    }
+
+    public function findMaps($id, Request $request)
+    {
+        $point = Point::find($id);
+        return view('findMaps', compact('point'));
+    }
 }

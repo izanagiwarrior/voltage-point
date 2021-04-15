@@ -5,6 +5,7 @@
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <link rel="icon" href="{{asset('img/thunderbolts (1) 2.png')}}" type="image/icon type">
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
      <link rel="stylesheet" href="{{asset('css/app.css')}}">
@@ -16,7 +17,7 @@
 <body>
      <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <div>
-               <a class="navbar-brand" href="#">
+               <a class="navbar-brand" href="{{route('home')}}">
                     <img src="{{asset('img/thunderbolts (1) 2.png')}}" width="133" height="48">
                </a>
           </div>
@@ -27,7 +28,7 @@
           <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
                <ul class="navbar-nav">
                     <li class="nav-item active">
-                         <a class="nav-link" href="#">Find Us <span class="sr-only">(current)</span></a>
+                         <a class="nav-link" href="{{route('find')}}">Find Us <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                          <a class="nav-link" href="#">About Us</a>

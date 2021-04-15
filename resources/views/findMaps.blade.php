@@ -9,7 +9,8 @@
 <div class="container">
      <div class="row">
           <div class="col mt-3" style="box-shadow: 0px 4px 4px #888;padding: 20px 10px">
-               <h4 class="text-center mb-4" style="color: #AB6353">Voltage Point</h4>
+               <h4 class="text-center mb-4" style="color: #AB6353">{{$point->location}}</h4>
+               <p class="text-center"><b>Lat</b> : {{ $point->lat }}    <b>Lang</b> : {{ $point->lang }}</p>
                <form action="">
                     <div class="form-group">
                          <label for="exampleFormControlInput1" class="font-weight-bold">Car Name</label>
@@ -59,10 +60,10 @@
 <script>
      function initMap() {
     // The location of Uluru
-    const uluru = { lat: -25.344, lng: 131.036 };
+    const uluru = { lat: {{$point->lat}}, lng: {{$point->lang}} };
     // The map, centered at Uluru
     const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 4,
+        zoom: 15,
         center: uluru,
     });
     // The marker, positioned at Uluru

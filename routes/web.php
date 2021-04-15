@@ -13,15 +13,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/find', function () {
-    return view('find');
-});
-Route::get('/find/data', function() {
-    return view('findData');
-});
-Route::get('/find/maps', function() {
-    return view('findMaps');
-})->name('maps');
 Route::get('/', function() {
     return view('home');
-});
+})->name('home');
+
+Route::get('/find', [App\Http\Controllers\Controller::class, 'find'])->name('find');
+
+Route::get('/find/{id}', [App\Http\Controllers\Controller::class, 'findMaps'])->name('findMaps');
+
+
+// Route::get('/find/maps', function() {
+//     return view('findMaps');
+// })->name('maps');
+
+// Route::get('/find', function () {
+//     return view('find');
+// });
+
+// Route::get('/find/data', function() {
+//     return view('findData');
+// });
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
