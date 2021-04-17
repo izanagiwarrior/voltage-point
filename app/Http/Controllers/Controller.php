@@ -8,6 +8,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use App\Models\User;
 use App\Models\Point;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 
 class Controller extends BaseController
@@ -24,5 +25,31 @@ class Controller extends BaseController
     {
         $point = Point::find($id);
         return view('findMaps', compact('point'));
+    }
+
+    public function transactionProcess(Request $request)
+    {
+        $transaction = new Transaction();
+        $transaction->location = $request->location;
+        $transaction->user = ""; // NANTI DI GANTI KALAU DAH ADA
+        $transaction->car_type = $request->car_type;
+        $transaction->license_plat = $request->license_plat;
+        $transaction->date = date('Y-m-d H:i:s');
+        $transaction->time = $request->time;
+        $transaction->save();
+
+        return redirect(route('QRCode'));
+        
+    }
+
+    public function QRcode()
+    {
+        return view('QRCode');
+    }
+
+    public function Receipt()
+    {   
+        $transaction = Transaction::all();
+        return view('Receipt',compact('transaction'));
     }
 }

@@ -1,6 +1,6 @@
 @extends('layout.master')
 
-@section('title', 'find location')
+@section('title', 'Home')
 @section('contents')
 <div class="container">
      <div class="row mt-5">

@@ -20,7 +20,9 @@ class CreateTransactionsTable extends Migration
             $table->string('car_type');
             $table->string('license_plat');
             $table->date('date');
-            $table->time('time');
+            $table->BigInteger('time');
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 

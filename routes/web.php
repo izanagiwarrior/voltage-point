@@ -18,8 +18,11 @@ Route::get('/', function() {
 })->name('home');
 
 Route::get('/find', [App\Http\Controllers\Controller::class, 'find'])->name('find');
+Route::get('/findMaps/{id}', [App\Http\Controllers\Controller::class, 'findMaps'])->name('findMaps');
+Route::post('/findMaps/{id}', [App\Http\Controllers\Controller::class, 'transactionProcess'])->name('transactionProcess');
+Route::get('/QRCode', [App\Http\Controllers\Controller::class, 'QRCode'])->name('QRCode');
+Route::get('/Receipt', [App\Http\Controllers\Controller::class, 'Receipt'])->name('Receipt');
 
-Route::get('/find/{id}', [App\Http\Controllers\Controller::class, 'findMaps'])->name('findMaps');
 
 
 // Route::get('/find/maps', function() {
