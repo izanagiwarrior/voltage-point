@@ -1,0 +1,6 @@
+role
+angga = find, findData (views)
+fira = transaction (views)
+nafta = findMaps (views)
+fadhil = QRCode (views)
+afif = home (views) dan controller (app)
