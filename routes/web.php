@@ -23,17 +23,13 @@ Route::post('/findMaps/{id}', [App\Http\Controllers\Controller::class, 'transact
 Route::get('/QRCode', [App\Http\Controllers\Controller::class, 'QRCode'])->name('QRCode');
 Route::get('/Receipt', [App\Http\Controllers\Controller::class, 'Receipt'])->name('Receipt');
 
-
-
-// Route::get('/find/maps', function() {
-//     return view('findMaps');
-// })->name('maps');
-
-// Route::get('/find', function () {
-//     return view('find');
-// });
-
-// Route::get('/find/data', function() {
-//     return view('findData');
-// });
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+//  todo: buatin routes untuk controller
+route::get('/top-up', function(){
+    return view('topUp');
+}); 
+route::get('/top-up/verification', function(){
+    return view('verification');
+}); 
+route::get('/top-up/success', function(){
+    return view('successTopUp');
+}); 
