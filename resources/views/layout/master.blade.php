@@ -30,15 +30,18 @@
                     <li class="nav-item active">
                          <a class="nav-link" href="{{route('find')}}">Find Us <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
+                         <a class="nav-link" href="{{route('topUp')}}">Top Up <span class="sr-only"></span></a>
+                    </li>
+                    <!-- <li class="nav-item">
                          <a class="nav-link" href="#">About Us</a>
                     </li>
                     <li class="nav-item">
                          <a class="nav-link" href="#">Sign In</a>
-                    </li>
-                    <li class="nav-item ml-4">
+                    </li> -->
+                    <!-- <li class="nav-item ml-4">
                          <a class="nav-link btn btn-success text-white" href="#">Sign Up</a>
-                    </li>
+                    </li> -->
                </ul>
           </div>
      </nav>

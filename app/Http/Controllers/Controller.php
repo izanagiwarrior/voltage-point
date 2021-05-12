@@ -15,6 +15,11 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+    public function index()
+    {
+        return view('home');
+    }
+
     public function find()
     {
         $point = Point::all();
@@ -52,4 +57,20 @@ class Controller extends BaseController
         $transaction = Transaction::all();
         return view('Receipt',compact('transaction'));
     }
+
+    public function topUp()
+    {   
+        return view('topUp');
+    }
+
+    public function verification()
+    {   
+        return view('verification');
+    }
+
+    public function successTopUp()
+    {   
+        return view('successTopUp');
+    }
+
 }
