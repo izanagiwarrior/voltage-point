@@ -14,15 +14,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Auth::routes();
-Route::get('/', [App\Http\Controllers\Controller::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\Controller::class, 'welcome'])->name('welcome');
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/find', [App\Http\Controllers\Controller::class, 'find'])->name('find');
 Route::get('/findMaps/{id}', [App\Http\Controllers\Controller::class, 'findMaps'])->name('findMaps');
 Route::post('/findMaps/{id}', [App\Http\Controllers\Controller::class, 'transactionProcess'])->name('transactionProcess');
 Route::get('/QRCode', [App\Http\Controllers\Controller::class, 'QRCode'])->name('QRCode');
 Route::get('/Receipt', [App\Http\Controllers\Controller::class, 'Receipt'])->name('Receipt');
+
+// Topup
 Route::get('/topUp', [App\Http\Controllers\Controller::class, 'topUp'])->name('topUp');
+Route::post('/topUp_process', [App\Http\Controllers\Controller::class, 'topUp_process'])->name('topUp_process');
 Route::get('/verification', [App\Http\Controllers\Controller::class, 'verification'])->name('verification');
 Route::get('/successTopUp', [App\Http\Controllers\Controller::class, 'successTopUp'])->name('successTopUp');
 
-Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Admin
+Route::get('admin/home', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');

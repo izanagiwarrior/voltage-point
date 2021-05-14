@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dompets;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -10,10 +11,17 @@ use App\Models\User;
 use App\Models\Point;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    public function welcome()
+    {
+        return view('welcome');
+    }
+
 
     public function index()
     {
@@ -60,17 +68,28 @@ class Controller extends BaseController
 
     public function topUp()
     {   
-        return view('topUp');
+        $saldo = Dompets::find(Auth::user()->id);
+        return view('topUp',compact('saldo'));
+    }
+
+    public function topUp_process(Request $request)
+    {   
+        $saldo = Dompets::find(Auth::user()->id);
+        $saldo->saldo += $request->topup;
+        $saldo->save();
+        return redirect(route('verification'));
     }
 
     public function verification()
     {   
-        return view('verification');
+        $saldo = Dompets::find(Auth::user()->id);
+        return view('verification',compact('saldo'));
     }
 
     public function successTopUp()
     {   
-        return view('successTopUp');
+        $saldo = Dompets::find(Auth::user()->id);
+        return view('successTopUp',compact('saldo'));
     }
 
 }

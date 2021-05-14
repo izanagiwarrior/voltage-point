@@ -20,7 +20,7 @@
                                              Go Pay
                                         </div>
                                         <div>
-                                             <b>My Cash : Rp.20.000</b>
+                                             <b>My Cash : Rp.{{$saldo->saldo}}</b>
                                         </div>
 
                                    </button>
@@ -31,7 +31,7 @@
                               data-parent="#accordion">
                               <div class="card-body">
                                    <div class="row">
-                                        <div class="col-6">
+                                        <!-- <div class="col-6">
                                              <form action="" method="post">
                                                   <div class="form-group">
                                                        <label for="exampleInputEmail1">Gopay Number</label>
@@ -45,9 +45,9 @@
                                                             aria-describedby="emailHelp" placeholder="Amount" disabled>
                                                   </div>
                                              </form>
-                                        </div>
+                                        </div> -->
                                         <div class="col-6">
-                                             <form action="" method="get">
+                                             <form action="{{ route('successTopUp')}}" method="get">
                                                   <div class="form-group">
                                                        <label for="exampleInputEmail1">OTP number verification</label>
                                                        <input type="text" class="form-control" id="exampleInputEmail1"

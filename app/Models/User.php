@@ -24,7 +24,6 @@ class User extends Authenticatable
         'nik',
         'no_handphone',
         'is_admin',
-        'saldo',
     ];
 
     /**

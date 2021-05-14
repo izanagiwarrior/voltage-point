@@ -21,14 +21,14 @@
                                              Go Pay
                                         </div>
                                         <div>
-                                             <b>My Cash : Rp.20.000</b>
+                                             <b>My Cash : Rp.{{$saldo->saldo}}</b>
                                         </div>
                                    </button>
                               </h5>
                          </div>
                     </div>
 
-                    <a href="{{route('Receipt')}}" class="btn btn-success px-3 mt-3"> Continue Payment</a>
+                    <a href="{{route('home')}}" class="btn btn-success px-3 mt-3">Home</a>
                </div>
           </div>
      </div>
