@@ -22,29 +22,33 @@
 
                     <div class="form-group">
                          <label for="exampleFormControlInput1" class="font-weight-bold">Car Name</label>
-                         <input type="text" name="car_type" class="form-control" id="exampleFormControlInput1" placeholder="Suzuki, Honda, Yamaha">
+                         <input type="text" name="car_type" class="form-control" id="exampleFormControlInput1" placeholder="Suzuki, Honda, Yamaha" required>
                     </div>
 
                     <div class="form-group">
                          <label for="exampleFormControlInput1" class="font-weight-bold">License Plate</label>
-                         <input type="text" name="license_plat" class="form-control" id="exampleFormControlInput1" placeholder="XX 1234 XX">
+                         <input type="text" name="license_plat" class="form-control" id="exampleFormControlInput1" placeholder="XX 1234 XX" required>
                     </div>
 
                     <label for="" class="d-block font-weight-bold">Charging Type</label>
                     <div class="form-check form-check-inline">
                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="amount" value="amount">
-                         <label class="form-check-label" for="inlineRadio1">Amount</label>
+                         <label class="form-check-label" for="inlineRadio1">Amount </label>
                     </div>
 
                     <div class="form-check form-check-inline">
                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="full" value="full">
-                         <label class="form-check-label" for="inlineRadio2">Full</label>
+                         <label class="form-check-label" for="inlineRadio2">Full   <small>(Rp. 200.000)</small></label>
                     </div>
                     {{-- onclick amount --}}
+                    <div class="form-group amount-radio2" style="display: none">
+                         <input type="text" name="time" value="200000" class="form-control" id="exampleFormControlInput1" placeholder="Please enter amount (Rupiah)" readonly>
+                    </div>
                     <div class="form-group amount-radio" style="display: none">
                          <input type="text" name="time" class="form-control" id="exampleFormControlInput1" placeholder="Please enter amount (Rupiah)">
                     </div>
                     {{-- end onclick amount --}}
+                    <br><small>Rp.2.500/Minute</small>
                     <button type="submit" class="btn btn-success d-block mt-3 mx-auto">Continue</button>
                </form>
           </div>
@@ -57,9 +61,11 @@
 <script>
      $("#amount").click(function() {
           $('.amount-radio').show();
+          $('.amount-radio2').hide();
      });
      $("#full").click(function() {
           $('.amount-radio').hide();
+          $('.amount-radio2').show();
      })
 </script>
 <script>

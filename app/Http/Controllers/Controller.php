@@ -48,37 +48,44 @@ class Controller extends BaseController
         $transaction->car_type = $request->car_type;
         $transaction->license_plat = $request->license_plat;
         $transaction->date = date('Y-m-d H:i:s');
-        $transaction->time = $request->time;
+        if ($request->time === null) {
+            $transaction->time = 200000;
+        } else {
+            $transaction->time = $request->time;
+        }
         $transaction->save();
 
         return redirect(route('QRCode'));
-        
     }
 
     public function QRcode()
     {
-        return view('QRCode');
+        $transaction = Transaction::all()->last();
+        $saldo = Dompets::find(Auth::user()->id);
+        return view('QRCode', compact('transaction', 'saldo'));
     }
 
     public function Receipt()
-    {   
+    {
         $transaction = Transaction::all()->last();
         $saldo = Dompets::find(Auth::user()->id);
-        if ($saldo->saldo > $transaction->time) {
-            return redirect(route('find'))->with('error', 'The warningmessage!');
+        if ($saldo->saldo < $transaction->time) {
+            return redirect(route('find'))->with('error', 'Saldo Tidak Cukup! Silahkan Top Up!');
         } else {
-            return view('Receipt',compact('transaction'));
+            $saldo->saldo -= $transaction->time;
+            $saldo->save();
+            return view('Receipt', compact('transaction','saldo'));
         }
     }
 
     public function topUp()
-    {   
+    {
         $saldo = Dompets::find(Auth::user()->id);
-        return view('topUp',compact('saldo'));
+        return view('topUp', compact('saldo'));
     }
 
     public function topUp_process(Request $request)
-    {   
+    {
         $saldo = Dompets::find(Auth::user()->id);
         $saldo->saldo += $request->topup;
         $saldo->save();
@@ -86,15 +93,14 @@ class Controller extends BaseController
     }
 
     public function verification()
-    {   
+    {
         $saldo = Dompets::find(Auth::user()->id);
-        return view('verification',compact('saldo'));
+        return view('verification', compact('saldo'));
     }
 
     public function successTopUp()
-    {   
+    {
         $saldo = Dompets::find(Auth::user()->id);
-        return view('successTopUp',compact('saldo'));
+        return view('successTopUp', compact('saldo'));
     }
-
 }

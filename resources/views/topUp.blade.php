@@ -32,11 +32,11 @@
                                                   @csrf
                                                   <div class="form-group">
                                                        <label for="exampleInputEmail1">Gopay Number</label>
-                                                       <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Gopay Number">
+                                                       <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Gopay Number" required>
                                                   </div>
                                                   <div class="form-group">
                                                        <label for="exampleInputEmail1">Top up amount</label>
-                                                       <input type="number" name="topup" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Amount">
+                                                       <input type="number" name="topup" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Amount" required>
                                                   </div>
                                                   <div class="form-group">
                                                        <input type="hidden" value="Auth::user()->id" name="id" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Amount">

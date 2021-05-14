@@ -19,9 +19,6 @@
                                                   class="mr-3">
                                              Go Pay
                                         </div>
-                                        <div>
-                                             <b>My Cash : Rp.{{$saldo->saldo}}</b>
-                                        </div>
 
                                    </button>
                               </h5>
