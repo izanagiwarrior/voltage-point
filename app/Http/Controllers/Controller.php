@@ -62,8 +62,13 @@ class Controller extends BaseController
 
     public function Receipt()
     {   
-        $transaction = Transaction::all();
-        return view('Receipt',compact('transaction'));
+        $transaction = Transaction::all()->last();
+        $saldo = Dompets::find(Auth::user()->id);
+        if ($saldo->saldo > $transaction->time) {
+            return redirect(route('find'))->with('error', 'The warningmessage!');
+        } else {
+            return view('Receipt',compact('transaction'));
+        }
     }
 
     public function topUp()
