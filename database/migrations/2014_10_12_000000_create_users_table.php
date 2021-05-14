@@ -22,9 +22,10 @@ class CreateUsersTable extends Migration
             $table->string('no_handphone');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->boolean('is_admin')->nullable();
+            $table->string('saldo')->nullable();
             $table->rememberToken();
             $table->timestamps();
-            $table->string('role');
         });
     }
 

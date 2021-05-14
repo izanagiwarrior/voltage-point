@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes();
 Route::get('/', [App\Http\Controllers\Controller::class, 'index'])->name('home');
 Route::get('/find', [App\Http\Controllers\Controller::class, 'find'])->name('find');
 Route::get('/findMaps/{id}', [App\Http\Controllers\Controller::class, 'findMaps'])->name('findMaps');
@@ -22,3 +23,6 @@ Route::get('/Receipt', [App\Http\Controllers\Controller::class, 'Receipt'])->nam
 Route::get('/topUp', [App\Http\Controllers\Controller::class, 'topUp'])->name('topUp');
 Route::get('/verification', [App\Http\Controllers\Controller::class, 'verification'])->name('verification');
 Route::get('/successTopUp', [App\Http\Controllers\Controller::class, 'successTopUp'])->name('successTopUp');
+
+Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
