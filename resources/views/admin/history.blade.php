@@ -2,7 +2,7 @@
 @section('title', 'running station')
 @section('contents')
 
-<h2 class="text-center my-5" style="color: #AB6353">Running Voltage Point Station</h2>
+<h2 class="text-center my-5" style="color: #AB6353">History</h2>
 <div class="container mt-3 p-3 splide" id="card-slider">
 
      <div class="splide__track">
@@ -26,10 +26,6 @@
                                    <p>{{$ts->license_plat}}</p>
                               </div>
                               <hr />
-                              <!-- <div class="d-flex justify-content-between">
-                                       <p class="font-weight-bold">Charging Type</p>
-                                       <p>Rp.50.000</p>
-                                   </div> -->
                               <p class="font-weight-bold">Price</p>
                               <p class="text-danger">Rp.2.500/Menit</p>
                               <p class="font-weight-bold">Transaction</p>

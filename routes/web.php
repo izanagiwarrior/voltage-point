@@ -35,7 +35,5 @@ Route::get('/successTopUp', [App\Http\Controllers\Controller::class, 'successTop
 
 // Admin
 Route::get('admin/home', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
-Route::get('/admin/screening', function(){
-     $transaction = Transaction::all();
-     return view('admin.screening', compact('transaction'));
-})->name('admin.screening');
+Route::get('/admin/screening', [App\http\Controllers\Controller::class, 'screening'])->name('admin.screening')->middleware('is_admin');
+Route::get('/admin/history', [App\http\Controllers\Controller::class, 'history'])->name('admin.history')->middleware('is_admin');

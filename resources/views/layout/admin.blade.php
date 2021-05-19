@@ -43,13 +43,10 @@
           <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
                <ul class="navbar-nav">
                     <li class="nav-item active">
-                         <a class="nav-link" href="{{route('transaction')}}">Transaction <span class="sr-only"></span></a>
+                         <a class="nav-link" href="{{route('admin.history')}}">History <span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item active">
-                         <a class="nav-link" href="{{route('find')}}">Find Us <span class="sr-only"></span></a>
-                    </li>
-                    <li class="nav-item active">
-                         <a class="nav-link" href="{{route('topUp')}}">Top Up <span class="sr-only"></span></a>
+                         <a class="nav-link" href="{{route('admin.screening')}}">Screening <span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item dropdown">
                          <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"

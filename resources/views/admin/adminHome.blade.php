@@ -1,6 +1,6 @@
-@extends('layout.master')
+@extends('layout.admin')
 
-@section('title', 'Home')
+@section('title', 'admin home')
 @section('contents')
 <div class="container">
      <div class="row mt-5">

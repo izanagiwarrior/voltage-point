@@ -109,4 +109,14 @@ class Controller extends BaseController
         $transaction = Transaction::all();
         return view('users.transaction', compact('transaction'));
     }
+
+    public function screening(){
+        $transaction = transaction::all();
+        return view('admin.screening', compact('transaction'));
+    }
+
+    public function history(){
+        $transaction = transaction::all();
+        return view('admin.history', compact('transaction'));
+    }
 }
