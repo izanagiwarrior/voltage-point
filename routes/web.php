@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Transaction;
+use App\Models\Dompets;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +33,7 @@ Route::get('/successTopUp', [App\Http\Controllers\Controller::class, 'successTop
 
 // Admin
 Route::get('admin/home', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
+Route::get('/admin/screening', function(){
+     $transaction = Transaction::all();
+     return view('admin.screening', compact('transaction'));
+})->name('admin.screening');

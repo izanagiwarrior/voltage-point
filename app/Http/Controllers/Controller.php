@@ -31,13 +31,13 @@ class Controller extends BaseController
     public function find()
     {
         $point = Point::all();
-        return view('findData', compact('point'));
+        return view('users.findData', compact('point'));
     }
 
     public function findMaps($id, Request $request)
     {
         $point = Point::find($id);
-        return view('findMaps', compact('point'));
+        return view('users.findMaps', compact('point'));
     }
 
     public function transactionProcess(Request $request)
@@ -62,7 +62,7 @@ class Controller extends BaseController
     {
         $transaction = Transaction::all()->last();
         $saldo = Dompets::find(Auth::user()->id);
-        return view('QRCode', compact('transaction', 'saldo'));
+        return view('users.QRCode', compact('transaction', 'saldo'));
     }
 
     public function Receipt()
@@ -74,14 +74,14 @@ class Controller extends BaseController
         } else {
             $saldo->saldo -= $transaction->time;
             $saldo->save();
-            return view('Receipt', compact('transaction','saldo'));
+            return view('users.Receipt', compact('transaction','saldo'));
         }
     }
 
     public function topUp()
     {
         $saldo = Dompets::find(Auth::user()->id);
-        return view('topUp', compact('saldo'));
+        return view('users.topUp', compact('saldo'));
     }
 
     public function topUp_process(Request $request)
@@ -95,12 +95,12 @@ class Controller extends BaseController
     public function verification()
     {
         $saldo = Dompets::find(Auth::user()->id);
-        return view('verification', compact('saldo'));
+        return view('users.verification', compact('saldo'));
     }
 
     public function successTopUp()
     {
         $saldo = Dompets::find(Auth::user()->id);
-        return view('successTopUp', compact('saldo'));
+        return view('users.successTopUp', compact('saldo'));
     }
 }
