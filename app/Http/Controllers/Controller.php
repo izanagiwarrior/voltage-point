@@ -103,4 +103,10 @@ class Controller extends BaseController
         $saldo = Dompets::find(Auth::user()->id);
         return view('users.successTopUp', compact('saldo'));
     }
+
+    public function transaction()
+    {
+        $transaction = Transaction::all();
+        return view('users.transaction', compact('transaction'));
+    }
 }

@@ -18,12 +18,14 @@ use App\Models\Dompets;
 Auth::routes();
 Route::get('/', [App\Http\Controllers\Controller::class, 'welcome'])->name('welcome');
 
+// User
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/find', [App\Http\Controllers\Controller::class, 'find'])->name('find');
 Route::get('/findMaps/{id}', [App\Http\Controllers\Controller::class, 'findMaps'])->name('findMaps');
 Route::post('/findMaps/{id}', [App\Http\Controllers\Controller::class, 'transactionProcess'])->name('transactionProcess');
 Route::get('/QRCode', [App\Http\Controllers\Controller::class, 'QRCode'])->name('QRCode');
 Route::get('/Receipt', [App\Http\Controllers\Controller::class, 'Receipt'])->name('Receipt');
+Route::get('/transaction', [App\Http\Controllers\Controller::class, 'transaction'])->name('transaction');
 
 // Topup
 Route::get('/topUp', [App\Http\Controllers\Controller::class, 'topUp'])->name('topUp');
