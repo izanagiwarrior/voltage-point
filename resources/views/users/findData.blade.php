@@ -14,7 +14,7 @@
                <div class="input-group col-7 mx-auto mb-5">
                     <input type="text" class="form-control" aria-label="Text input with dropdown button">
                     <div class="input-group-append">
-                         <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
+                         <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pilih Kota</button>
                          <div class="dropdown-menu">
                               <a class="dropdown-item" href="#">Bandung</a>
                               <a class="dropdown-item" href="#">Bogor</a>
@@ -32,7 +32,7 @@
                          <a href="{{ route('findMaps',$index->id) }}" class="card-find">
                               <div class="card-body">
                                    <h5 class="card-title">{{ $index->location }}</h5>
-                                   <p class="card-text"><b>Lat</b> : {{ $index->lat }} <b>Lang</b> : {{ $index->lang }}</p>
+                                   <p class="card-text">{{ $index->alamat }}</p>
                               </div>
                          </a>
                     </div>

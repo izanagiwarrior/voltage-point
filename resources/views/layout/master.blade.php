@@ -43,7 +43,10 @@
           <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
                <ul class="navbar-nav">
                     <li class="nav-item active">
-                         <a class="nav-link" href="{{route('transaction')}}">Transaction <span class="sr-only"></span></a>
+                         <a class="nav-link" href="{{route('transaction')}}">History <span class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item active">
+                         <a class="nav-link" href="{{route('screening')}}">Transaction <span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item active">
                          <a class="nav-link" href="{{route('find')}}">Find Us <span class="sr-only"></span></a>
@@ -54,7 +57,7 @@
                     <li class="nav-item dropdown">
                          <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                              {{ Auth::user()->name }}
+                              {{ Auth::user()->nama_lengkap }}
                          </a>
 
                          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -72,7 +75,9 @@
           </div>
      </nav>
 
-     @yield('contents')
+     @yield('contents') 
+     <!-- Scripts -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
           integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">

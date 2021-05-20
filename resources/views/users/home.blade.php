@@ -4,6 +4,12 @@
 @section('contents')
 <div class="container">
      <div class="row mt-5">
+          @if ($message = Session::get('success'))
+          <div class="alert alert-success alert-block">
+               <button type="button" class="close" data-dismiss="alert">×</button>
+               <strong>{{ $message }}</strong>
+          </div>
+          @endif
           <div class="col">
                <img src="{{asset('img/charging-station 1.png')}}">
           </div>
@@ -17,5 +23,6 @@
           </div>
      </div>
 </div>
-
+<!-- Scripts -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 @endsection

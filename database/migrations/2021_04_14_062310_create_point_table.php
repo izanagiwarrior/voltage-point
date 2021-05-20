@@ -16,6 +16,7 @@ class CreatePointTable extends Migration
         Schema::create('point', function (Blueprint $table) {
             $table->id();
             $table->string('location')->nullable();
+            $table->string('alamat')->nullable();
             $table->double('lat')->nullable();
             $table->double('lang')->nullable();
         });

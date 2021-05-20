@@ -10,8 +10,6 @@ class Transaction extends Model
     protected $table = 'transactions';
 
     protected $fillable = [
-        'location','user','car_type','license_plat','date','time'
+        'location','user','car_type','license_plat','time','selesai','status'
     ];
-
-    public $timestamps = false;
 }

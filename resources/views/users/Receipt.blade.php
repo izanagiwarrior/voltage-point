@@ -16,7 +16,7 @@
                     <hr />
                     <div class="d-flex justify-content-between">
                         <p class="font-weight-bold">Date</p>
-                        <p>{{$transaction->date}}</p>
+                        <p>{{$transaction->created_at}}</p>
                     </div>
                     <div class="d-flex justify-content-between">
                         <p class="font-weight-bold">Car Type</p>
@@ -27,18 +27,18 @@
                         <p>{{$transaction->license_plat}}</p>
                     </div>
                     <hr />
-                    <!-- <div class="d-flex justify-content-between">
-                        <p class="font-weight-bold">Charging Type</p>
-                        <p>Rp.50.000</p>
-                    </div> -->
                     <p class="font-weight-bold">Price</p>
                     <p class="text-danger">Rp.2.500/Menit</p>
                     <p class="font-weight-bold">Transaction</p>
                     <p class="text-danger">Rp. {{$transaction->time}}</p>
                     <hr />
                     <div class="d-flex justify-content-between">
-                        <p class="font-weight-bold">Total</p>
+                        <p class="font-weight-bold">Total (Time)</p>
                         <p>{{$transaction->time/2500}} Menit</p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <p class="font-weight-bold">Total (kWh)</p>
+                        <p>{{number_format($transaction->time/1500, 2, '.', '')}} kWh</p>
                     </div>
                     <div class="d-flex justify-content-between">
                         <p class="font-weight-bold">Sisa Saldo</p>
@@ -47,7 +47,7 @@
                 </div>
             </div>
         </div>
-        <a href="{{route('home')}}" class="btn btn-success mx-auto px-5 mt-5">Finish</a>
+        <a href="{{route('homeSuccess')}}" class="btn btn-success mx-auto px-5 mt-5">Finish</a>
     </div>
 </div>
 

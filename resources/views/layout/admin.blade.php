@@ -46,12 +46,12 @@
                          <a class="nav-link" href="{{route('admin.history')}}">History <span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item active">
-                         <a class="nav-link" href="{{route('admin.screening')}}">Screening <span class="sr-only"></span></a>
+                         <a class="nav-link" href="{{route('admin.screening')}}">Transaction <span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item dropdown">
                          <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                              {{ Auth::user()->name }}
+                              {{ Auth::user()->nama_lengkap }}
                          </a>
 
                          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -83,4 +83,4 @@
      @yield('scripts')
 </body>
 
-</html>
+</html> 

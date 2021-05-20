@@ -1,6 +1,6 @@
 @extends('layout.admin')
 
-@section('title', 'admin home')
+@section('title', 'Admin : Home')
 @section('contents')
 <div class="container">
      <div class="row mt-5">

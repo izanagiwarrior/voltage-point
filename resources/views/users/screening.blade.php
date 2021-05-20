@@ -1,14 +1,15 @@
-@extends('layout.admin')
+@extends('layout.master')
 @section('title', 'running station')
 @section('contents')
 
-<h2 class="text-center my-5" style="color: #AB6353">History</h2>
+<h2 class="text-center my-5" style="color: #AB6353">Running Voltage Point Station</h2>
 <div class="container mt-3 p-3 splide" id="card-slider">
 
      <div class="splide__track">
           <ul class="splide__list">
                @foreach ($transaction as $ts)
-               @if($ts->status == "Completed")
+               @if($ts->user === Auth::user()->nama_lengkap)
+               @if($ts->status == "Progress")
                <li class="splide__slide d-flex justify-content-center">
                     <div class="card splide__slide" style="width:25rem; margin:0 5px;">
                          <div class="card-body">
@@ -44,13 +45,17 @@
                                    <p class="font-weight-bold">Status</p>
                                    <p>{{$ts->status}}</p>
                               </div>
-                              <div class="d-flex justify-content-between">
-                                   <p class="font-weight-bold">User</p>
-                                   <p>{{$ts->user}}</p>
+                              <div class="d-flex justify-content-center">
+                                   <form action="{{ route('orderProcess') }}" method="post">
+                                        @csrf
+                                        <input type="hidden" value="{{ $ts->id }}" name="id">
+                                        <button class="btn btn-success">Complete</button>
+                                   </form>
                               </div>
                          </div>
                     </div>
                </li>
+               @endif
                @endif
                @endforeach
           </ul>

@@ -10,7 +10,7 @@
      <div class="row">
           <div class="col mt-3" style="box-shadow: 0px 4px 4px #888;padding: 20px 10px">
                <h4 class="text-center mb-4" style="color: #AB6353">{{$point->location}}</h4>
-               <p class="text-center"><b>Lat</b> : {{ $point->lat }} <b>Lang</b> : {{ $point->lang }}</p>
+               <p class="text-center">{{ $point->alamat}}</p>
 
                <form action="{{ route('transactionProcess',$point->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
@@ -48,7 +48,13 @@
                          <input type="text" name="time" class="form-control" id="exampleFormControlInput1" placeholder="Please enter amount (Rupiah)">
                     </div>
                     {{-- end onclick amount --}}
-                    <br><small>Rp.2.500/Minute</small>
+                    <br><br><small>Information :</small>
+                    <br><small>Rp. 2.500 / Minute</small>
+                    <br><small>Rp. 1.500 / kWh</small>
+                    <div class="form-check form-check-inline">
+                         <input type="hidden" name="user" value="{{Auth::user()->nama_lengkap}}" id="amount">
+                    </div>
+
                     <button type="submit" class="btn btn-success d-block mt-3 mx-auto">Continue</button>
                </form>
           </div>
