@@ -29,6 +29,8 @@ Route::get('/Receipt', [App\Http\Controllers\Controller::class, 'Receipt'])->nam
 Route::get('/history', [App\Http\Controllers\Controller::class, 'transaction'])->name('transaction');
 Route::get('/transaction', [App\http\Controllers\Controller::class, 'transaction_view'])->name('screening');
 Route::post('/transaction', [App\Http\Controllers\Controller::class, 'user_orderProcess'])->name('orderProcess');
+Route::get('/confirmation', [App\http\Controllers\Controller::class, 'confirmation'])->name('confirmation');
+Route::get('/charge-status', [App\http\Controllers\Controller::class, 'chargeStatus'])->name('chargeStatus');
 
 // Topup
 Route::get('/topUp', [App\Http\Controllers\Controller::class, 'topUp'])->name('topUp');

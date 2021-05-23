@@ -47,7 +47,7 @@
                 </div>
             </div>
         </div>
-        <a href="{{route('homeSuccess')}}" class="btn btn-success mx-auto px-5 mt-5">Finish</a>
+        <a href="{{route('chargeStatus')}}" class="btn btn-success mx-auto px-5 mt-5">Finish</a>
     </div>
 </div>
 

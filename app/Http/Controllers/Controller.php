@@ -158,4 +158,12 @@ class Controller extends BaseController
 
         return redirect(route('admin.screening'));
     }
+
+    public function confirmation(){
+        return view('users/confirmation');
+    }
+
+    public function chargeStatus(){
+        return view('users/chargeStatus');
+    }
 }
