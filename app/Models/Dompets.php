@@ -9,6 +9,6 @@ class Dompets extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'user_id','saldo',
+        'id','user_id','saldo'
     ];
 }

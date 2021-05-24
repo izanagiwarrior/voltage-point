@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Dompets;
+
 class HomeController extends Controller
 {
     /**
@@ -23,7 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('users.home');
+        $dompet = Dompets::all();
+        return view('users.home',compact('dompet'));
     }
 
     public function adminHome()

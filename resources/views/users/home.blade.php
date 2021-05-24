@@ -20,6 +20,23 @@
                     assumenda inventore doloribus rem ab? Quasi optio sequi provident! Fuga quidem dicta veniam fugit
                     numquam
                     facilis?</p>
+               <?php
+               $check = false;
+               ?>
+               @foreach($dompet as $dp)
+               @if (Auth::user()->id === $dp->id)
+               <?php
+               $check = true;
+               ?>
+               @endif
+               @endforeach
+               @if ($check === false)
+               <form action="{{ route('addDompet') }}" method="post">
+                    @csrf
+                    <input type="hidden" value="{{ Auth::user()->id }}" name="id">
+                    <button class="btn btn-success">Click Here to Active your Saldo</button>
+               </form>
+               @endif
           </div>
      </div>
 </div>

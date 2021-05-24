@@ -31,6 +31,7 @@ Route::get('/transaction', [App\http\Controllers\Controller::class, 'transaction
 Route::post('/transaction', [App\Http\Controllers\Controller::class, 'user_orderProcess'])->name('orderProcess');
 Route::get('/confirmation', [App\http\Controllers\Controller::class, 'confirmation'])->name('confirmation');
 Route::get('/charge-status', [App\http\Controllers\Controller::class, 'chargeStatus'])->name('chargeStatus');
+Route::post('/charge-status', [App\http\Controllers\Controller::class, 'addDompet'])->name('addDompet');
 
 // Topup
 Route::get('/topUp', [App\Http\Controllers\Controller::class, 'topUp'])->name('topUp');

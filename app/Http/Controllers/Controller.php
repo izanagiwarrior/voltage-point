@@ -166,4 +166,15 @@ class Controller extends BaseController
     public function chargeStatus(){
         return view('users/chargeStatus');
     }
+
+    public function addDompet(Request $request){
+        $dompet = new Dompets();
+        $dompet->id = $request->id;
+        $dompet->user_id = $request->id;
+        $dompet->saldo = 0;
+        $dompet->save();
+
+        
+        return redirect(route('home'));
+    }
 }
