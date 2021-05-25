@@ -35,7 +35,7 @@ $i = 0
             <td>{{ $order->location }}</td>
             <td>{{ $order->car_type }}</td>
             <td>{{ $order->license_plat }}</td>
-            <td>Rp. {{ $order->time}}</td>
+            <td>Rp. {{number_format($order->time,2,',','.')}}</td>
             <td>{{ $order->created_at }}</td>
             <td>{{ $order->selesai }}</td>
         </tr>

@@ -42,7 +42,7 @@
                     </div>
                     <div class="d-flex justify-content-between">
                         <p class="font-weight-bold">Sisa Saldo</p>
-                        <p>Rp. {{$saldo->saldo}}</p>
+                        <p>Rp. {{number_format($saldo->saldo,2,',','.')}}</p>
                     </div>
                 </div>
             </div>
