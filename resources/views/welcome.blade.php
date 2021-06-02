@@ -74,12 +74,12 @@
         </div>
     </nav>
 
-    <div class="container">
-        <div class="row mt-5">
-            <div class="col">
-                <img src="{{asset('img/charging-station 1.png')}}">
+    <div class="container" style="height: 80vh;">
+        <div class="row mt-5" style="height: 100%;">
+            <div class="col d-flex flex-column justify-content-center">
+                <img src="{{asset('img/charging-station 1.png')}}" width="400">
             </div>
-            <div class="col">
+            <div class="col d-flex flex-column justify-content-center">
                 <h2 class="text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, est!</h2>
                 <p class="text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing elit.<br /> Corporis labore
                     sapiente sed similique iure

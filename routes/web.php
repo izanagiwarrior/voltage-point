@@ -21,6 +21,8 @@ Route::get('/', [App\Http\Controllers\Controller::class, 'welcome'])->name('welc
 // User
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/home', [App\Http\Controllers\HomeController::class, 'homeSuccess'])->name('homeSuccess');
+Route::get('/profile', [App\Http\Controllers\Controller::class, 'profile'])->name('profile');
+
 Route::get('/find', [App\Http\Controllers\Controller::class, 'find'])->name('find');
 Route::get('/findMaps/{id}', [App\Http\Controllers\Controller::class, 'findMaps'])->name('findMaps');
 Route::post('/findMaps/{id}', [App\Http\Controllers\Controller::class, 'transactionProcess'])->name('transactionProcess');
@@ -43,3 +45,11 @@ Route::get('admin/home', [App\Http\Controllers\HomeController::class, 'adminHome
 Route::get('admin/screening', [App\http\Controllers\Controller::class, 'screening'])->name('admin.screening')->middleware('is_admin');
 Route::get('admin/history', [App\http\Controllers\Controller::class, 'history'])->name('admin.history')->middleware('is_admin');
 Route::post('admin/orderProcess', [App\Http\Controllers\Controller::class, 'orderProcess'])->name('admin.orderProcess')->middleware('is_admin');
+
+// Route::get('feedback', function(){
+//     return view('users.feedback');
+// });
+
+// Route::get('feedback/success', function(){
+//     return view('users.feedbackSuccess');
+// });
