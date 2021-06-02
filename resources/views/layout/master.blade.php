@@ -81,6 +81,9 @@
      </style>
      {{-- <script src="{{asset('js/index.js')}}"></script> --}}
      <title>@yield('title')</title>
+
+     <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+     <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
 </head>
 
 <body>

@@ -21,7 +21,7 @@
                                              Go Pay
                                         </div>
                                         <div>
-                                             <b>My Cash : Rp.{{$saldo->saldo}}</b>
+                                             <b>My Cash : Rp. {{number_format($saldo->saldo,2,',','.')}}</b>
                                         </div>
                                    </button>
                               </h5>

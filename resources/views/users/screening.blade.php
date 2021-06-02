@@ -31,7 +31,7 @@
                               <p class="font-weight-bold">Price</p>
                               <p class="text-danger">Rp.2.500/Menit</p>
                               <p class="font-weight-bold">Transaction</p>
-                              <p class="text-danger">Rp. {{$ts->time}}</p>
+                              <p class="text-danger">Rp. {{number_format($ts->time,2,',','.')}}</p>
                               <hr />
                               <div class="d-flex justify-content-between">
                                    <p class="font-weight-bold">Total (Time)</p>
