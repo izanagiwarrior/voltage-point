@@ -13,6 +13,7 @@ use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use App\Models\Feedbacks;
 use DateTime;
 
 class Controller extends BaseController
@@ -60,7 +61,7 @@ class Controller extends BaseController
         } else {
             $transaction->time = $request->time;
         }
-        $minutes = (int)$transaction-> time / 2500;
+        $minutes = (int)$transaction->time / 2500;
 
         $newDateTime = Carbon::now()->addMinute($minutes);
         $transaction->selesai = $newDateTime;
@@ -87,7 +88,7 @@ class Controller extends BaseController
         } else {
             $saldo->saldo -= $transaction->time;
             $saldo->save();
-            return view('users.Receipt', compact('transaction','saldo'));
+            return view('users.Receipt', compact('transaction', 'saldo'));
         }
     }
 
@@ -123,16 +124,18 @@ class Controller extends BaseController
         return view('users.history', compact('transaction'));
     }
 
-    public function screening(){
+    public function screening()
+    {
         $transaction = transaction::all();
         $saldo = Dompets::find(Auth::user()->id);
-        return view('admin.screening', compact('transaction','saldo'));
+        return view('admin.screening', compact('transaction', 'saldo'));
     }
 
-    public function transaction_view(){
+    public function transaction_view()
+    {
         $transaction = transaction::all();
         $saldo = Dompets::find(Auth::user()->id);
-        return view('users.screening', compact('transaction','saldo'));
+        return view('users.screening', compact('transaction', 'saldo'));
     }
 
     public function user_orderProcess(Request $request)
@@ -144,10 +147,11 @@ class Controller extends BaseController
         return redirect(route('screening'));
     }
 
-    public function history(){
+    public function history()
+    {
         $transaction = transaction::all();
         $saldo = Dompets::find(Auth::user()->id);
-        return view('admin.history', compact('transaction','saldo'));
+        return view('admin.history', compact('transaction', 'saldo'));
     }
 
     public function orderProcess(Request $request)
@@ -159,22 +163,48 @@ class Controller extends BaseController
         return redirect(route('admin.screening'));
     }
 
-    public function confirmation(){
+    public function confirmation()
+    {
         return view('users/confirmation');
     }
 
-    public function chargeStatus(){
+    public function chargeStatus()
+    {
         return view('users/chargeStatus');
     }
 
-    public function addDompet(Request $request){
+    public function addDompet(Request $request)
+    {
         $dompet = new Dompets();
         $dompet->id = $request->id;
         $dompet->user_id = $request->id;
         $dompet->saldo = 0;
         $dompet->save();
 
-        
+
         return redirect(route('home'));
+    }
+
+    public function feedback()
+    {
+        return view('users.feedback');
+    }
+
+    public function feedback_process(Request $request)
+    {
+        $feedback = new Feedbacks();
+        $feedback->user_id = $request->user_id;
+        $feedback->feedback = $request->feedback;
+        $feedback->rating = $request->rate;
+        $feedback->save();
+
+        return view('users.feedbackSuccess');
+    }
+
+    public function feedback_list()
+    {
+        $feedback = Feedbacks::all();
+        $user = User::all();
+        return view('admin.feedback',compact('feedback','user'));
     }
 }

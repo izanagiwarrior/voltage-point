@@ -43,6 +43,9 @@
           <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
                <ul class="navbar-nav">
                     <li class="nav-item active">
+                         <a class="nav-link" href="{{route('admin.feedback')}}">Feedback <span class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item active">
                          <a class="nav-link" href="{{route('admin.history')}}">History <span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item active">

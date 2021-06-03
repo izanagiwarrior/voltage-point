@@ -45,12 +45,9 @@ Route::get('/successTopUp', [App\Http\Controllers\Controller::class, 'successTop
 Route::get('admin/home', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 Route::get('admin/screening', [App\http\Controllers\Controller::class, 'screening'])->name('admin.screening')->middleware('is_admin');
 Route::get('admin/history', [App\http\Controllers\Controller::class, 'history'])->name('admin.history')->middleware('is_admin');
+Route::get('admin/feedback', [App\http\Controllers\Controller::class, 'feedback_list'])->name('admin.feedback')->middleware('is_admin');
 Route::post('admin/orderProcess', [App\Http\Controllers\Controller::class, 'orderProcess'])->name('admin.orderProcess')->middleware('is_admin');
 
-// Route::get('feedback', function(){
-//     return view('users.feedback');
-// });
-
-// Route::get('feedback/success', function(){
-//     return view('users.feedbackSuccess');
-// });
+// Feedback
+Route::get('feedback', [App\Http\Controllers\Controller::class, 'feedback'])->name('feedback');
+Route::post('feedback', [App\Http\Controllers\Controller::class, 'feedback_process'])->name('feedback_process');
