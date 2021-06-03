@@ -205,6 +205,38 @@ class Controller extends BaseController
     {
         $feedback = Feedbacks::all();
         $user = User::all();
-        return view('admin.feedback',compact('feedback','user'));
+        return view('admin.feedback', compact('feedback', 'user'));
+    }
+
+    public function user()
+    {
+        $user = User::all();
+        return view('admin.user', compact('user'));
+    }
+
+    public function update_user($id, Request $request)
+    {
+        $user = User::find($id);
+        return view('admin.editUser', compact('user'));
+    }
+
+    public function update_user_process($id, Request $request)
+    {
+        $user = User::find($id);
+        $user->nama_lengkap = $request->nama_lengkap;
+        $user->nik = $request->nik;
+        $user->no_handphone = $request->no_handphone;
+        $user->save();
+        $user = User::all();
+        return redirect(route('admin.user'));
+    }
+
+    public function d2d()
+    {
+        // $transaction = transaction::orderBy('created_at', 'desc')->get();
+        $transaction = transaction::selectRaw("sum(time) time, DATE_FORMAT(created_at, '%Y %m %e') date")
+            ->groupBy('date')
+            ->get();
+        return view('admin.d2d_transaction', compact('transaction'));
     }
 }

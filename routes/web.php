@@ -46,6 +46,10 @@ Route::get('admin/home', [App\Http\Controllers\HomeController::class, 'adminHome
 Route::get('admin/screening', [App\http\Controllers\Controller::class, 'screening'])->name('admin.screening')->middleware('is_admin');
 Route::get('admin/history', [App\http\Controllers\Controller::class, 'history'])->name('admin.history')->middleware('is_admin');
 Route::get('admin/feedback', [App\http\Controllers\Controller::class, 'feedback_list'])->name('admin.feedback')->middleware('is_admin');
+Route::get('admin/user', [App\http\Controllers\Controller::class, 'user'])->name('admin.user')->middleware('is_admin');
+Route::get('admin/edit/{id}', [App\http\Controllers\Controller::class, 'update_user'])->name('update.user')->middleware('is_admin');
+Route::post('admin/edit/{id}', [App\http\Controllers\Controller::class, 'update_user_process'])->name('update.user.process')->middleware('is_admin');
+Route::get('admin/d2d', [App\http\Controllers\Controller::class, 'd2d'])->name('d2d')->middleware('is_admin');
 Route::post('admin/orderProcess', [App\Http\Controllers\Controller::class, 'orderProcess'])->name('admin.orderProcess')->middleware('is_admin');
 
 // Feedback
