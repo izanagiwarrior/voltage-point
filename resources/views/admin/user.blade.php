@@ -25,14 +25,14 @@ $i = 0
             <td>{{ $i += 1 }}</td>
             <td>{{ $order->nama_lengkap }}</td>
             <td>{{ $order->email }}</td>
-            <td>{{ $order->tanggal_lahir }}</td>
+            <td>{{ date('d-m-Y', strtotime($order->tanggal_lahir))}}</td>
             <td>{{ $order->nik }}</td>
             <td>{{ $order->no_handphone}}</td>
-            <td>{{ $order->created_at}}</td>
+            <td>{{ date('d-m-Y', strtotime($order->created_at))}}</td>
             @if($order->id === 1)
             <td><p href="" class="">Admin</p></td>
             @else
-            <td><a href="{{route('update.user', $order->id)}}" class="btn btn-warning">Membarui</a></td>
+            <td><a href="{{route('update.user', $order->id)}}" class="btn btn-warning">Perbarui</a></td>
             @endif
         </tr>
         @endforeach

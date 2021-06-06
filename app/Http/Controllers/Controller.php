@@ -239,4 +239,13 @@ class Controller extends BaseController
             ->get();
         return view('admin.d2d_transaction', compact('transaction'));
     }
+    public function profile($id){
+        $data = User::findOrFail($id);
+        return view('users.profile', compact('data'));
+    }
+
+    public function profileEdit($id){
+        $data = User::findOrFail($id);
+        return view('users.profileEdit', compact('data'));
+    }
 }

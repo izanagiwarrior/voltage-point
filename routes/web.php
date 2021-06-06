@@ -21,7 +21,9 @@ Route::get('/', [App\Http\Controllers\Controller::class, 'welcome'])->name('welc
 // User
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/home', [App\Http\Controllers\HomeController::class, 'homeSuccess'])->name('homeSuccess');
-Route::get('/profile', [App\Http\Controllers\Controller::class, 'profile'])->name('profile');
+Route::post('/home', [App\Http\Controllers\HomeController::class, 'homeSuccess'])->name('homeSuccess');
+Route::get('/profile/{id}', [App\Http\Controllers\Controller::class, 'profile'])->name('profile');
+Route::get('/profile/edit/{id}', [App\Http\Controllers\Controller::class, 'profileEdit'])->name('profile-edit');
 
 Route::get('/find', [App\Http\Controllers\Controller::class, 'find'])->name('find');
 Route::get('/findMaps/{id}', [App\Http\Controllers\Controller::class, 'findMaps'])->name('findMaps');
